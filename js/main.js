@@ -1,4 +1,5 @@
 const form = document.querySelector('#novoItem')
+const lista = document.querySelector('#lista')
 
 form.addEventListener('submit', (event) => {
   event.preventDefault()
@@ -6,16 +7,19 @@ form.addEventListener('submit', (event) => {
 })
 
 function criaElemento(nome, qtd) {
-  //criação da lista com a class item
+  //criação do novo elemento da lista com um class item
   const novoItem = document.createElement('li')
   novoItem.classList.add("item")
-  //criação da tag strong com a quantidade do item dentro
+  //criação da tag strong com o parâmetro qtd dentro
   const numeroItem = document.createElement('strong')
   numeroItem.innerHTML = qtd
-  //aglutinação da lista com a tag strong e o parâmetro nome
+  //aglutinação do novo elemento com a tag strong e o parâmetro nome
   novoItem.appendChild(numeroItem)
   novoItem.innerHTML += nome
 
-  console.log(novoItem)
+  //local aonde será alocado o novo elemento, vulgo, <ul id="lista">...</ul>.
+  lista.appendChild(novoItem)
+
+  console.log(lista)
 
 }
