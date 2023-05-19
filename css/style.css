@@ -105,6 +105,7 @@ html {
 }
 
 .item {
+    display: inline-flex;
     list-style: none;
     padding: 0.6em 2em;
     background: #FFFFFF;
@@ -112,7 +113,6 @@ html {
     margin: 0 0 1em;
     width: 100%;
     box-sizing: border-box;
-    display: inline-flex;
     align-items: center;
     gap: 1em;
     font-size: 20px;
@@ -131,7 +131,7 @@ html {
 
 /*-------------------ItensNovos-----------------------*/
 
-.remove {
+.removeAll {
     position: relative;
     top: -35px;
     left: 20px;
@@ -145,7 +145,18 @@ html {
     transition: .2s;
 }
 
-.remove:hover {
+.removeItem {
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #40112D;
+    border-radius: 9999px;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.removeAll:hover, .removeItem:hover {
     background-color: #40112D;
     font-weight: 700;
+    color: #FFFFFF;
 }
