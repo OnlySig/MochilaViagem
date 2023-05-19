@@ -131,6 +131,25 @@ html {
 
 /*-------------------ItensNovos-----------------------*/
 
+.nada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    height: 300px;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.emj {
+    margin: 0;
+}
+
+.off {
+    display: none;
+}
+
 .removeAll {
     position: relative;
     top: -35px;

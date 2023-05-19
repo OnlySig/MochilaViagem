@@ -1,7 +1,8 @@
 const form = document.querySelector('#novoItem')
 const list = document.querySelector('#lista')
-const itens = JSON.parse(localStorage.getItem("itens")) || []
+const nada = document.querySelector('#off')
 const remover = document.querySelector('#remove')
+const itens = JSON.parse(localStorage.getItem("itens")) || []
 
 remover.addEventListener('click', () =>{
   localStorage.clear()
@@ -9,7 +10,10 @@ remover.addEventListener('click', () =>{
 })
 
 itens.forEach(element => {
-  criaElemento(element)
+  if(element.constructor.length > 0) {
+    criaElemento(element)
+    nada.classList.add('off')
+  }
 });
 
 form.addEventListener('submit', (event) => {
@@ -29,6 +33,7 @@ form.addEventListener('submit', (event) => {
     atualizaElemento(itemAtual)
     itens[itens.findIndex(element => element.id === existe.id)] = itemAtual
   } else {
+    nada.classList.add('off')
     itemAtual.id = itens[itens.length -1] ? (itens[itens.length-1]).id + 1 : 0
     criaElemento(itemAtual)
     itens.push(itemAtual)
