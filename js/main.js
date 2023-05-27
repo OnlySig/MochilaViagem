@@ -19,11 +19,13 @@ itens.forEach(element => {
 form.addEventListener('submit', (event) => {
   const nome = event.target.elements['nome'];
   const qtd = event.target.elements['quantidade'];
+  const personagem = event.target.elements['personagem']
   const existe = itens.find(element => element.nome === nome.value)
 
   const itemAtual = {
     "nome": nome.value,
-    "qtd": qtd.value
+    "qtd": qtd.value,
+    "personagem": personagem.value
   }
   event.preventDefault()
   if(nome.value === '' || qtd.value === '' || qtd.value <= 0) {
@@ -40,8 +42,7 @@ form.addEventListener('submit', (event) => {
   }
   localStorage.setItem("itens", JSON.stringify(itens))
 
-  limparForm(nome.value = '', qtd.value = '')
-
+  limparForm(nome.value = '', qtd.value = '', personagem.value = '')
 })
 
 function criaElemento(item) {
@@ -51,11 +52,18 @@ function criaElemento(item) {
   const numero = document.createElement('strong')
   novoItem.appendChild(numero)
   numero.dataset.id = item.id
+
+  const elementoImg = document.createElement('img')
+  elementoImg.classList.add('imgPersonagem')
+  elementoImg.src = `/personagem/${item.personagem}.png`
+  elementoImg.alt = `${item.personagem}`
   
   numero.innerHTML = item.qtd
   novoItem.innerHTML += item.nome
   
-  novoItem.appendChild(botaoDeleta(item.id))
+  
+  novoItem.appendChild(elementoImg)
+  novoItem.append(botaoDeleta(item.id))
   list.appendChild(novoItem)
 
 }

@@ -1,7 +1,8 @@
 html {
-    background: radial-gradient(farthest-corner at right top,#21A09D, #06182D);
+    background:#191825;
     height: 100%;
     font-family: 'Roboto', cursive;
+    color: #ffffff;
 }
 
 .conteudo {
@@ -17,7 +18,7 @@ html {
     padding: 4em 2em 2em;
     box-sizing: border-box;
     display: flex;
-    background: #C5965F;
+    background: #35334b;
     border-radius: 10px;
     gap: 2em;
 }
@@ -102,13 +103,15 @@ html {
 .lista {
     margin: 0;
     padding: 0;
+    height: 300px;
+    overflow-y: scroll;
 }
 
 .item {
     display: inline-flex;
     list-style: none;
     padding: 0.6em 2em;
-    background: #FFFFFF;
+    background: #35334b;
     border-radius: 10px;
     margin: 0 0 1em;
     width: 100%;
@@ -125,7 +128,7 @@ html {
     justify-content: center;
     width: 40px;
     height: 40px;
-    Background: #C5965F;
+    Background: #865DFF;
     font-weight: 400;
 }
 
@@ -136,7 +139,7 @@ html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 600px;
+    width: 550px;
     height: 300px;
     font-size: 30px;
     color: #FFFFFF;
@@ -167,8 +170,9 @@ html {
 .removeItem {
     background-color: transparent;
     outline: none;
-    border: 1px solid #40112D;
+    border: 2px solid #40112D;
     border-radius: 9999px;
+    color: #FFFFFF;
     padding: 5px 8px;
     cursor: pointer;
     transition: .2s;
@@ -177,5 +181,47 @@ html {
 .removeAll:hover, .removeItem:hover {
     background-color: #40112D;
     font-weight: 700;
-    color: #FFFFFF;
 }
+
+.lista::-webkit-scrollbar {
+    background-color: #865DFF;
+    border-radius: 10px;
+}
+
+.lista::-webkit-scrollbar-thumb {
+    background-color: #2d2b42;
+    border-radius: 16px;
+}
+
+.chase {
+    position: relative;
+    right: -15px;
+    top: -70px;
+    width: 140px;
+    height: 100px;
+}
+
+.imgPersonagem {
+    border-radius: 10px;
+}
+
+@media (max-width: 1080px) {
+    .conteudo {
+        flex-direction: column;
+        align-items: center;
+    }
+    .removeAll {
+        top: 0px;
+        left: 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    .principal {
+        min-width: 300px;
+    }
+    .mochila {
+        display: none;
+    }
+}
+
