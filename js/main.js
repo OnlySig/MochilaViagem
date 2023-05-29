@@ -20,17 +20,15 @@ form.addEventListener('submit', (event) => {
   const nome = event.target.elements['nome'];
   const qtd = event.target.elements['quantidade'];
   const personagem = event.target.elements['personagem']
-  const existe = itens.find(element => element.nome === nome.value)
-
+  const existe = itens.find(element => element.nome === nome.value && element.personagem === personagem.value)
+  
   const itemAtual = {
     "nome": nome.value,
     "qtd": qtd.value,
     "personagem": personagem.value
   }
   event.preventDefault()
-  if(nome.value === '' || qtd.value === '' || qtd.value <= 0) {
-  alert('[ERRO] valores invalidos')
-  } else if(existe) {
+  if(existe) {
     itemAtual.id = existe.id
     atualizaElemento(itemAtual)
     itens[itens.findIndex(element => element.id === existe.id)] = itemAtual
@@ -53,24 +51,38 @@ function criaElemento(item) {
   novoItem.appendChild(numero)
   numero.dataset.id = item.id
 
-  const elementoImg = document.createElement('img')
-  elementoImg.classList.add('imgPersonagem')
-  elementoImg.src = `/personagem/${item.personagem}.png`
-  elementoImg.alt = `${item.personagem}`
-  
+  const elementoItem = document.createElement('img')
+  elementoItem.classList.add('itens')
+  elementoItem.src = `/itens/${item.nome}.png`
+  elementoItem.alt = `${item.nome}`
+  console.log(elementoItem.alt)
+
   numero.innerHTML = item.qtd
-  novoItem.innerHTML += item.nome
+
+  if(item.nome === elementoItem.alt) {
+    novoItem.appendChild(elementoItem)
+  } else {
+    novoItem.innerHTML += item.nome
+  }
   
-  
-  novoItem.appendChild(elementoImg)
+  novoItem.appendChild(elementoImg(item.personagem))
   novoItem.append(botaoDeleta(item.id))
   list.appendChild(novoItem)
 
 }
 
-function atualizaElemento(item) {
-  document.querySelector("[data-id='"+item.id+"']").innerHTML = item.qtd
+function elementoImg(personagem) {
+  const elementoImg = document.createElement('img')
+  elementoImg.classList.add('imgPersonagem')
+  elementoImg.src = `/personagem/${personagem}.png`
+  elementoImg.alt = `personagem: ${personagem}`
+
+  return elementoImg
 }
+
+ function atualizaElemento(item) {
+    document.querySelector("[data-id='"+item.id+"']").innerHTML = item.qtd
+  }
 
 function botaoDeleta(id) {
   const elementoBotao = document.createElement("button")
@@ -79,6 +91,9 @@ function botaoDeleta(id) {
 
   elementoBotao.addEventListener('click', function()  {
     deletaElemento(this.parentNode, id)
+    if(id == 0) {
+      nada.classList.remove('off')
+    }
   })
 
   return elementoBotao;

@@ -201,10 +201,14 @@ html {
     height: 100px;
 }
 
+.itens {
+    width: 77px;
+}
+
 .imgPersonagem {
     border-radius: 10px;
 }
-
+/*---------------------------------responsividade-------------------------------------------*/
 @media (max-width: 1080px) {
     .conteudo {
         flex-direction: column;

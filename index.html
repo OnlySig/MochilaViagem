@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mochila de viagem</title>
+    <title>Mochila Chase</title>
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="src/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/favicon-16x16.png">
+    <link rel="manifest" href="src/site.webmanifest">
 </head>
 <body>
     <main class="conteudo">
@@ -19,11 +23,11 @@
             </div>
             <form action="" class="adicionar" id="novoItem">
                 <label for="item">Nome do Item</label>
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome" required>
                 <label for="item">Quantidade</label>
-                <input type="number" name="quantidade" id="quantidade">
+                <input type="number" name="quantidade" id="quantidade" required>
                 <label for="item">Personagem ou Armazem</label>
-                <input type="text" name="personagem" id="personagem">
+                <input type="text" name="personagem" id="personagem" required>
                 <input type="submit" value="Adicionar" class="cadastrar">
             </form>
         </div>
