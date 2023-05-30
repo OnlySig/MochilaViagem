@@ -80,7 +80,7 @@ function elementoImg(personagem) {
   return elementoImg
 }
 
- function atualizaElemento(item) {
+function atualizaElemento(item) {
     document.querySelector("[data-id='"+item.id+"']").innerHTML = item.qtd
   }
 
@@ -91,7 +91,7 @@ function botaoDeleta(id) {
 
   elementoBotao.addEventListener('click', function()  {
     deletaElemento(this.parentNode, id)
-    if(id == 0) {
+    if(itens == '') {
       nada.classList.remove('off')
     }
   })
