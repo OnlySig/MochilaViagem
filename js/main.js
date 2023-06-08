@@ -55,7 +55,6 @@ function criaElemento(item) {
   elementoItem.classList.add('itens')
   elementoItem.src = `/itens/${item.nome}.png`
   elementoItem.alt = `${item.nome}`
-  console.log(elementoItem.alt)
 
   numero.innerHTML = item.qtd
 
